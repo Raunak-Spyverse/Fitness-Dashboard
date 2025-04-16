@@ -40,7 +40,15 @@ const mockData = {
   ],
 };
 
-const ProgressCard = ({ title, current, goal, color, icon: Icon }) => {
+interface ProgressCardProps {
+  title: string;
+  current: number;
+  goal: number;
+  color: string; 
+  icon: React.ElementType; 
+}
+
+const ProgressCard: React.FC<ProgressCardProps> = ({ title, current, goal, color, icon: Icon }) => {
   const percentage = Math.min((current / goal) * 100, 100);
   
   return (
